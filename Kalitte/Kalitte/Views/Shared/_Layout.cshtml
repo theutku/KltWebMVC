@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalitte Profesyonel Bilgi Teknolojileri - @ViewBag.Title </title>
+    @Styles.Render("~/Content/maincss")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("customStyles", required: false)
+    <meta charset="utf-8">
+    <title>Kalitte Profesyonel Bilgi Teknolojileri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Kalitte Profesyonel Bilgi Teknolojileri" />
+
+    <!-- css -->
+    @*<link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="css/flexslider.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/custom-kalitte.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="img/kalitte/kalitte.png" />*@
+
+    <!--SEO Opt-->
+    <meta name="distribution" content="web">
+    <link rel=”publisher” href="http://www.kalitte.com.tr">
+    <meta name="description" content="Ankara ODTÜ Teknokentte hizmet veren, yazılım geliştirme, kurumsal danışmanlık ve yetkin işgücü temini hizmetleri sunan bilişim teknolojileri firmasıdır." />
+    <meta name="keywords" content="profesyonel bilgi teknolojileri, yazılım, yazılım geliştirme, software development, consultancy, danışmanlık, yetkin işgücü temini, talented labor">
+    <meta name="rating" content="general">
+    <meta name="revisit-after" content="3 day">
+    <meta name="robots" content="index,follow,all">
+    <meta property=”og:title” content=”Kalitte Profesyonel Bilgi Teknolojileri”>
+    <meta property=”og:url” content=”http://www.kalitte.com.tr”>
+    <meta property="og:image" content="http://www.kalitte.com.tr/img/kalitte/kalitte-logo.png">
+    <meta property=”og:description” content=”Ankara ODTÜ Teknokentte hizmet veren, yazılım geliştirme, kurumsal danışmanlık ve
+          yetkin işgücü temini hizmetleri sunan bilişim teknolojileri firmasıdır.”>
+    <meta property="og:type" content="website">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Kalitte Profesyonel Bilgi Teknolojileri">
+    <meta property="twitter:description" content="UAnkara ODTÜ Teknokentte hizmet veren, yazılım geliştirme, kurumsal danışmanlık ve yetkin işgücü temini hizmetleri sunan bilişim teknolojileri firmasıdır.">
+    <meta property="twitter:image" content="http://www.kalitte.com.tr/img/kalitte/kalitte-logo.png">
+    <meta name="twitter:site" content="Kalitte Profesyonel Bilgi Teknolojileri">
+    <meta name="twitter:creator" content="Kalitte Profesyonel Bilgi Teknolojileri">
+    <meta name="twitter:url" content="http://www.kalitte.com.tr">
+</head>
+<body>
+
+    <div id="wrapper" class="home-page">
+       @Html.Partial("_Header")
+
+        <!-- end header -->
+
+        @RenderBody()
+
+        @Html.Partial("_Footer")
+    </div>
+
+    <a href="#" class="scrollup">
+
+        <i class="fa fa-angle-up active"></i>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/mainjs")
+        @RenderSection("scripts", required: false)
+
+</body>
+</html>

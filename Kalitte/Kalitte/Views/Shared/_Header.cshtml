@@ -1,0 +1,57 @@
+﻿<div class="topbar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="pull-right">
+                    <i class="fa fa-phone"></i>+90 (312) 210 10 88
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- start header -->
+
+<header>
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <img class="kalitte-logo" src="~/Content/img/kalitte/kalitte-logo.png" alt="logo" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse ">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        @Html.ActionLink("Anasayfa", "Index", "Home")
+                    </li>
+                    <li>
+                        @Html.ActionLink("HİZMETLER", "Services", "Home")
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                            Kurumsal
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Html.ActionLink("TARİHÇE", "About", "Home")
+                            </li>
+                            <li>
+                                @Html.ActionLink("Haberler", "News", "Home")
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        @Html.ActionLink("İLETİŞİM", "Contact", "Home")
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

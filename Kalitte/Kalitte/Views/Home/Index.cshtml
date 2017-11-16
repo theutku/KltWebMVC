@@ -1,0 +1,153 @@
+﻿@{
+    ViewBag.Title = "Anasayfa";
+}
+
+
+@section customStyles {
+    @Styles.Render("~/Content/slidercss")
+}
+<section id="banner">
+    <!-- Slider -->
+
+    <div id="main-slider" class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="~/Content/img/slides/consulting.jpg" alt="Team" />
+                <div class="flex-caption">
+                    <h3>DANIŞMANLIK</h3>
+                    <p>Bilgi Teknolojileri Danışmanlık Hizmetleri</p>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/img/slides/team.jpg" alt="Team" />
+                <div class="flex-caption">
+                    <h3>YETKİN İŞGÜCÜ TEMİNİ</h3>
+                    <p>Profesyonel İnsan Kaynakları</p>
+                </div>
+            </li>
+            <li>
+                <img src="~/Content/img/slides/2.jpg" alt="Software" />
+                <div class="flex-caption">
+                    <h3>YAZILIM ÇÖZÜMLERİ</h3>
+                    <p>Profesyonel Yazılım Geliştirme ve Kurumsal Proje Yönetimi</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- end slider -->
+</section>
+
+<section id="call-to-action-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-sm-9">
+                <h3>KALİTTE PROFESYONEL BİLGİ TEKNOLOJİLERİ</h3>
+                <p>
+                    Kalitte, 2008 yılından bugüne bilgi teknolojileri danışmanlığı, yetkin işgücü temini ve yazılım geliştirme alanlarında
+                    hizmet vermektedir.
+                </p>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                <a href="news.html" class="btn btn-primary">Güncel Haberler</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aligncenter">
+                    <h2 class="aligncenter">HİZMETLER</h2>
+                </div>
+                <br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-lightbulb-o"></i>
+                <div class="info-blocks-in">
+                    <div class="info-text">
+                        <h3>Danışmanlık</h3>
+                        <p>Bilgi teknolojileri danışmanlık hizmetleri ile konusunda deneyimli uzmanlarımızdan profesyonel destek.</p>
+                    </div>
+                    <div class="info-button">
+                        @Html.ActionLink("Detaylar", "Services", "Home", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa-users"></i>
+                <div class="info-blocks-in">
+                    <div class="info-text">
+                        <h3>Yetkin İşgücü Temini</h3>
+                        <p>Personel istihdamı yerine kısa ve orta vade işgücü kiralama yöntemi ile etkin maliyet kazanımı.</p>
+                    </div>
+                    <div class="info-button">
+                        @Html.ActionLink("Detaylar", "Services", "Home", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 info-blocks">
+                <i class="icon-info-blocks fa fa fa-code"></i>
+                <div class="info-blocks-in">
+                    <div class="info-text">
+                        <h3>Yazılım Geliştirme</h3>
+                        <p>Müşteriye özel yazılım geliştirme hizmetleri ile yüksek kaliteli anahtar teslimi uygulama yazılımı çözümleri.</p>
+                    </div>
+                    <div class="info-button">
+                        @Html.ActionLink("Detaylar", "Services", "Home", new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="section-padding gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h2>KALİTE DNA'mızda</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="about-text">
+                    <p>
+                        Kalitte, sunduğu tüm hizmetlerde, müşterisiyle empati kurarak ihtiyaçlarını doğru anlamayı ve en doğru çözümü sunmayı
+                        temel ilke olarak benimsemiştir. Kaliteli ve güvenilir uzun soluklu hizmet anlayışı Kalitte’nin temel prensibidir.
+                    </p>
+                    <p>İş anlayışımızda şunları benimsemekteyiz:</p>
+                    <ul class="withArrow">
+                        <li>
+                            <span class="fa fa-angle-right"></span> Detaylı iş süreci ve risk analizi
+                        </li>
+                        <li>
+                            <span class="fa fa-angle-right"></span> Güncel teknolojiyi etkin uygulama
+                        </li>
+                        <li>
+                            <span class="fa fa-angle-right"></span> Kesintisiz destek
+                        </li>
+                    </ul>
+                    @Html.ActionLink("Tarihçe", "About", "Home", new { @class = "btn btn-primary" })
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="about-image">
+                    <img src="~/Content/img/kalitte/precision2.jpg" alt="About Images">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts {
+    @Scripts.Render("~/bundles/sliderjs")
+}
