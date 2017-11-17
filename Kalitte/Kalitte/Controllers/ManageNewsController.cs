@@ -19,6 +19,7 @@ namespace Kalitte.Controllers
         public ActionResult Index()
         {
             List<News> allNews = this.db.News.ToList();
+            ViewBag.PageHeader = "TÜM HABERLER";
             return View(allNews);
         }
 

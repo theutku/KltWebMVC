@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<Kalitte.Models.News>
+
 @{
     ViewBag.Title = "Haberler";
 }
@@ -7,7 +8,7 @@
 
 @section customStyles {
     @Styles.Render("~/Content/gallerycss")
-    }
+}
 <section id="gallery-1" class="content-block section-wrapper gallery-1">
     <div class="container">
         <div class="editContent">
@@ -22,39 +23,44 @@
             </ul>
         </div>
 
+        <div class="row">
 
-        <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper guncel">
-            <div class="gallery-item">
-                <div class="gallery-thumb">
-                    <img src="~/Content/img/news/tcdd.png" class="img-responsive" alt="3rd gallery Thumb">
-                    <div class="image-overlay"></div>
-                    <a href="img/news/tcdd.png" class="gallery-zoom">
-                        <i class="fa fa-eye"></i>
-                    </a>
-                    <a href="#" class="gallery-link">
-                        <i class="fa fa-link"></i>
-                    </a>
-                </div>
-                <div class="gallery-details">
-                    <div class="editContent">
-                        <h4>TCDD Kamusallaştırma Yönetim Bilgi Sistemi</h4>
+            <div id="isotope-gallery-container">
+
+                @foreach (var item in Model)
+            {
+                    <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper @item.NewsTypes">
+                        <div class="gallery-item">
+                            <div class="gallery-thumb">
+                                <img src="~/Content/img/news/tcdd.png" class="img-responsive" alt="3rd gallery Thumb">
+                                <div class="image-overlay"></div>
+                                <a href="img/news/tcdd.png" class="gallery-zoom">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a href="#" class="gallery-link">
+                                    <i class="fa fa-link"></i>
+                                </a>
+                            </div>
+                            <div class="gallery-details">
+                                <div class="editContent">
+                                    <h4>@item.Header</h4>
+                                </div>
+                                <div class="editContent">
+                                    <p>@item.Body
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="editContent">
-                        <p>
-                            2015 yılında başlanan, T.C. Devlet Demir Yolları İşletmesi Kamusallaştırma Yönetim Bilgi Sistemi yazılım güncellemeleri
-                            tamamlanmış, yazılım bakım ve destek süreci başlamıştır.
-                        </p>
-                    </div>
-                </div>
+                }
+
             </div>
         </div>
-
-
-
     </div>
+
 </section>
 
 @section scripts {
     @Scripts.Render("~/ bundles / galleryjs")
-    }
+}
 

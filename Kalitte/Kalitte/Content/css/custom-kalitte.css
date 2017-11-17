@@ -4,7 +4,7 @@
     color: #fdd428 !important;
 }
 
-.widget i  {
+.widget i {
     color: white;
     font-size: 1.2em;
     margin-right: 5px;
@@ -55,14 +55,13 @@ footer {
     /* max-width: 250px; */
     margin: 0 auto;
     height: 250px;
-    
 }
 
-.gallery-thumb img {
-    /* margin-top: 25%; */
-    max-height: 248px;
-    margin: 10% auto;
-}
+    .gallery-thumb img {
+        /* margin-top: 25%; */
+        max-height: 248px;
+        margin: 10% auto;
+    }
 
 .editContent {
     padding-top: 5px;
@@ -86,10 +85,9 @@ footer {
     text-decoration: underline;
 }
 
-.editContent .active a {
-    color: #458dd4 !important;
-    
-}
+    .editContent .active a {
+        color: #458dd4 !important;
+    }
 
 #gallery-1 {
     margin-top: 2em;
@@ -102,19 +100,17 @@ footer {
         margin-bottom: 3em !important;
     }
 
-    .slides img{
+    .slides img {
         height: 200px;
-        
     }
 
     .flex-caption {
         display: block !important;
     }
 
-    .flex-caption h3 {
-        font-size: 20px !important;
-        
-    }
+        .flex-caption h3 {
+            font-size: 20px !important;
+        }
 
     .about-image {
         margin-top: 2em;
@@ -135,9 +131,8 @@ footer {
 }
 
 @media screen and (min-width: 767px) {
-    .slides img{
+    .slides img {
         height: 550px;
-        
     }
 
     .info-text {
@@ -163,11 +158,11 @@ footer {
     padding-top: 10px;
 }
 
-.gallery-item:hover {
-    -webkit-box-shadow: 0 8px 16px 0 rgba(69,96,144,1);
-    -moz-box-shadow: 0 8px 16px 0 rgba(69,96,144,1);
-    box-shadow: 0 8px 16px 0 rgba(69,96,144,1);
-}
+    .gallery-item:hover {
+        -webkit-box-shadow: 0 8px 16px 0 rgba(69,96,144,1);
+        -moz-box-shadow: 0 8px 16px 0 rgba(69,96,144,1);
+        box-shadow: 0 8px 16px 0 rgba(69,96,144,1);
+    }
 
 .contact-page h3 {
     padding-left: 15px;
@@ -186,8 +181,8 @@ footer {
 
 form {
     margin-top: 50px;
-    padding-left:50px;
-    padding-right:50px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .margin-left {
@@ -206,4 +201,37 @@ form {
     background: lightgray;
     margin-bottom: 0 !important;
     padding-bottom: 30px;
+}
+
+.margin-right {
+    margin-right: 15%;
+}
+
+.news-table {
+    width: initial;
+    margin: 0 auto;
+}
+
+.news-row {
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-bottom: 15px;
+    margin-bottom: 15px !important;
+    font-weight: bold;
+    margin-top: 50px;
+    border-bottom: 1px solid lightgray;
+    text-align:center;
+}
+
+.newsitem-row {
+    padding-left: 12%;
+    padding-right: 12%;
+    padding-bottom: 15px;
+    margin-bottom: 15px !important;
+    border-bottom: 1px solid lightgray;
+    text-align:center;
+}
+
+.custom-padding-top {
+    padding-top: 50px;
 }

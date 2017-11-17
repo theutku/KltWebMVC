@@ -12,6 +12,8 @@ namespace Kalitte.Services
     public class ManageNewsServices
     {
 
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public static void FillNewsTypes(News model)
         {
             model.NewsTypes = Enum.GetNames(typeof(NewsTypes.NewsCategory)).Select(category => new SelectListItem() { Text = category, Value = category });
@@ -21,6 +23,12 @@ namespace Kalitte.Services
         {
             model.CreatedBy = HttpContext.Current.User.Identity.GetUserId();
             model.CreationDate = DateTime.Now;
+        }
+
+        public List<News> GetAllNews()
+        {
+            List<News> allNews = this.db.News.ToList();
+            return allNews;
         }
     }
 }

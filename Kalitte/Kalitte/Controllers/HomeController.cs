@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Kalitte.Models;
+using Kalitte.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,8 @@ namespace Kalitte.Controllers
 {
     public class HomeController : Controller
     {
+
+        private ManageNewsServices newsHelper = new ManageNewsServices();
         public ActionResult Index()
         {
             return View();
@@ -22,7 +26,8 @@ namespace Kalitte.Controllers
         public ActionResult News()
         {
             ViewBag.PageHeader = "HABERLER";
-            return View();
+            List<News> allNews = this.newsHelper.GetAllNews();
+            return View(allNews);
         }
 
         public ActionResult Services()

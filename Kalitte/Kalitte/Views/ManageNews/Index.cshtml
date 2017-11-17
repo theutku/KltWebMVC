@@ -1,57 +1,104 @@
 ﻿@model IEnumerable<Kalitte.Models.News>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tüm Haberler";
 }
 
-<h2>Index</h2>
+@Html.Partial("_PageHeader")
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Header)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreationDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SelectedNewsCategory)
-        </th>
-        <th></th>
-    </tr>
+<a href="@Url.Action("Create", "ManageNews")" class="margin-left "><i class="fa fa-3x fa-plus-circle custom-padding-top"></i></a>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
+<div class="row news-row">
+    <div class="col-xs-2">
+        @Html.DisplayNameFor(model => model.Header)
+    </div>
+    <div class="col-xs-3">
+        @Html.DisplayNameFor(model => model.Body)
+    </div>
+    <div class="col-xs-2">
+        @Html.DisplayNameFor(model => model.CreatedBy)
+    </div>
+    <div class="col-xs-2">
+        @Html.DisplayNameFor(model => model.CreationDate)
+    </div>
+    <div class="col-xs-2">
+        @Html.DisplayNameFor(model => model.SelectedNewsCategory)
+    </div>
+    <div class="col-xs-1">
+    </div>
+</div>
+
+
+@foreach (var item in Model)
+{
+    <div class="row newsitem-row">
+        <div class="col-xs-2">
             @Html.DisplayFor(modelItem => item.Header)
-        </td>
-        <td>
+        </div>
+        <div class="col-xs-3">
             @Html.DisplayFor(modelItem => item.Body)
-        </td>
-        <td>
+        </div>
+        <div class="col-xs-2">
             @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
+        </div>
+        <div class="col-xs-2">
             @Html.DisplayFor(modelItem => item.CreationDate)
-        </td>
-        <td>
+        </div>
+        <div class="col-xs-2">
             @Html.DisplayFor(modelItem => item.SelectedNewsCategory)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+        </div>
+        <div class="col-xs-1">
+            @Html.ActionLink("Değiştir", "Edit", new { id = item.Id })
+            @Html.ActionLink("Görüntüle", "Details", new { id = item.Id })
+            @Html.ActionLink("Sil", "Delete", new { id = item.Id })
+        </div>
+    </div>
 }
 
-</table>
+
+@*<table class="table news-table margin-top">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Header)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SelectedNewsCategory)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Header)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Body)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectedNewsCategory)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@
