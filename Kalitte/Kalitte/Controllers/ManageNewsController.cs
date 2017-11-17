@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using System.Globalization;
 
 namespace Kalitte.Controllers
 {
@@ -20,7 +18,7 @@ namespace Kalitte.Controllers
         // GET: ManageNews
         public ActionResult Index()
         {
-            List<NewsModel> allNews = this.db.CreatedNews.ToList();
+            List<News> allNews = this.db.News.ToList();
             return View(allNews);
         }
 
@@ -33,7 +31,7 @@ namespace Kalitte.Controllers
         // GET: ManageNews/Create
         public ActionResult Create()
         {
-            var model = new NewsModel();
+            var model = new News();
             ManageNewsServices.FillNewsTypes(model);
 
             ViewBag.PageHeader = "Yeni Haber Oluştur";
@@ -43,19 +41,16 @@ namespace Kalitte.Controllers
 
         // POST: ManageNews/Create
         [HttpPost]
-        public ActionResult Create(NewsModel model)
+        public ActionResult Create(News model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
                     // TODO: Add insert logic here
-                    model.CreatedBy = User.Identity.GetUserId();
-                    DateTime now = new DateTime();
-                    string isoNow = now.ToString("o", CultureInfo.InvariantCulture);
-                    model.CreationDate = isoNow;
-                    this.db.CreatedNews.Add(model);
-
+                    ManageNewsServices.FillNewsModelDetails(model);
+                    this.db.News.Add(model);
+                    this.db.SaveChanges();
                     return RedirectToAction("Index");
                 }
                 catch

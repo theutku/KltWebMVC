@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Kalitte.Models
 {
-    public class NewsModel
+    public class News
     {
         public int Id { get; set; }
 
@@ -21,17 +21,19 @@ namespace Kalitte.Models
         [Display(Name = "Haber İçeriği")]
         public string Body { get; set; }
 
+        [Display(Name = "Oluşturan ID")]
         public string CreatedBy { get; set; }
 
         [DataType(DataType.DateTime)]
-        public string CreationDate { get; set; }
+        [Display(Name = "Oluşturulma Tarihi")]
+        public DateTime CreationDate { get; set; }
 
         [Display(Name = "Haber Tipi")]
         public IEnumerable<SelectListItem> NewsTypes { get; set; }
 
         [Required]
+        [Display(Name = "Haber Tipi")]
         public string SelectedNewsCategory { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
     }
 }

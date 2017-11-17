@@ -1,4 +1,4 @@
-﻿@model Kalitte.Models.NewsModel
+﻿@model Kalitte.Models.News
 
 @{
     ViewBag.Title = "Haber Oluştur";
@@ -23,7 +23,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NewsTypes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("SelectedNewsType", Model.NewsTypes, "Haber Tipi", new { @class = "form-control" })
+                @Html.DropDownList("SelectedNewsCategory", Model.NewsTypes, "Haber Tipi", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CreationDate, "", new { @class = "text-danger" })
             </div>
         </div>

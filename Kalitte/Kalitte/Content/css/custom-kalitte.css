@@ -201,3 +201,9 @@ form {
 .warning {
     color: red;
 }
+
+.login-bar {
+    background: lightgray;
+    margin-bottom: 0 !important;
+    padding-bottom: 30px;
+}
