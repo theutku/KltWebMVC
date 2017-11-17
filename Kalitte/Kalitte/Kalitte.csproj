@@ -180,6 +180,8 @@
     <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\NewsTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ManageNewsServices.cs" />
+    <Compile Include="Services\NewsAuthorizationFilter.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -336,11 +338,12 @@
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\Services.cshtml" />
     <Content Include="Views\Shared\_PageHeader.cshtml" />
+    <Content Include="Views\ManageNews\Create.cshtml" />
+    <Content Include="Views\ManageNews\Index.cshtml" />
+    <Content Include="Views\Shared\Unauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Services\" />
-    <Folder Include="Views\ManageNews\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

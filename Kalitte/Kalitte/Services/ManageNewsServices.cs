@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Kalitte.Services
 {
@@ -15,9 +16,9 @@ namespace Kalitte.Services
             this.db = db;
         }
 
-        public void CreateNews()
+        public static void FillNewsTypes(NewsModel model)
         {
-
+            model.NewsTypes = Enum.GetNames(typeof(NewsTypes.NewsCategory)).Select(category => new SelectListItem() { Text = category, Value = category });
         }
 
     }

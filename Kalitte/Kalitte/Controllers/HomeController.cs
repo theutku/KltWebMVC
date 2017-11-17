@@ -35,5 +35,11 @@ namespace Kalitte.Controllers
             ViewBag.PageHeader = "İLETİŞİM";
             return View();
         }
+
+        public ActionResult Unauthorized()
+        {
+            ViewBag.PageHeader = "ERİŞİM ENGELLENDİ";
+            return View("Unauthorized");
+        }
     }
 }
