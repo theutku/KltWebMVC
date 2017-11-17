@@ -1,4 +1,4 @@
-.btn-primary:hover {
+﻿.btn-primary:hover {
     background: none;
     border: 1px #fdd428 solid !important;
     color: #fdd428 !important;
@@ -213,10 +213,8 @@ form {
 }
 
 .news-row {
-    padding-left: 12%;
-    padding-right: 12%;
     padding-bottom: 15px;
-    margin-bottom: 15px !important;
+    margin-bottom: 0px !important;
     font-weight: bold;
     margin-top: 50px;
     border-bottom: 1px solid lightgray;
@@ -224,14 +222,22 @@ form {
 }
 
 .newsitem-row {
-    padding-left: 12%;
-    padding-right: 12%;
     padding-bottom: 15px;
-    margin-bottom: 15px !important;
+    margin-bottom: 0px !important;
     border-bottom: 1px solid lightgray;
     text-align:center;
+    padding-top: 30px;
 }
 
 .custom-padding-top {
     padding-top: 50px;
+}
+
+.row-cont {
+    margin-left:12%;
+    margin-right:12%;
+}
+
+.newsitem-row:hover {
+    background: aliceblue;
 }

@@ -26,7 +26,9 @@ namespace Kalitte.Controllers
         // GET: ManageNews/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ViewBag.PageHeader = "HABER DETAYI";
+            News newsItem = this.db.News.Find(id);
+            return View(newsItem);
         }
 
         // GET: ManageNews/Create

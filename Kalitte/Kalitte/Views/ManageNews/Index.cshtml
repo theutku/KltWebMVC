@@ -7,52 +7,60 @@
 @Html.Partial("_PageHeader")
 
 <a href="@Url.Action("Create", "ManageNews")" class="margin-left "><i class="fa fa-3x fa-plus-circle custom-padding-top"></i></a>
-
-<div class="row news-row">
-    <div class="col-xs-2">
-        @Html.DisplayNameFor(model => model.Header)
-    </div>
-    <div class="col-xs-3">
-        @Html.DisplayNameFor(model => model.Body)
-    </div>
-    <div class="col-xs-2">
-        @Html.DisplayNameFor(model => model.CreatedBy)
-    </div>
-    <div class="col-xs-2">
-        @Html.DisplayNameFor(model => model.CreationDate)
-    </div>
-    <div class="col-xs-2">
-        @Html.DisplayNameFor(model => model.SelectedNewsCategory)
-    </div>
-    <div class="col-xs-1">
+<div class="row-cont">
+    <div class="row news-row">
+        <div class="col-xs-2">
+            @Html.DisplayNameFor(model => model.Header)
+        </div>
+        <div class="col-xs-3">
+            @Html.DisplayNameFor(model => model.Body)
+        </div>
+        <div class="col-xs-2">
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </div>
+        <div class="col-xs-2">
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </div>
+        <div class="col-xs-1">
+            @Html.DisplayNameFor(model => model.SelectedNewsCategory)
+        </div>
+        <div class="col-xs-2">
+        </div>
     </div>
 </div>
 
 
+
 @foreach (var item in Model)
 {
-    <div class="row newsitem-row">
-        <div class="col-xs-2">
-            @Html.DisplayFor(modelItem => item.Header)
-        </div>
-        <div class="col-xs-3">
-            @Html.DisplayFor(modelItem => item.Body)
-        </div>
-        <div class="col-xs-2">
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </div>
-        <div class="col-xs-2">
-            @Html.DisplayFor(modelItem => item.CreationDate)
-        </div>
-        <div class="col-xs-2">
-            @Html.DisplayFor(modelItem => item.SelectedNewsCategory)
-        </div>
-        <div class="col-xs-1">
-            @Html.ActionLink("Değiştir", "Edit", new { id = item.Id })
-            @Html.ActionLink("Görüntüle", "Details", new { id = item.Id })
-            @Html.ActionLink("Sil", "Delete", new { id = item.Id })
+    <div class="row-cont">
+        <div class="row newsitem-row">
+            <div class="col-xs-2">
+                @Html.DisplayFor(modelItem => item.Header)
+            </div>
+            <div class="col-xs-3">
+                @Html.DisplayFor(modelItem => item.Body)
+            </div>
+            <div class="col-xs-2">
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </div>
+            <div class="col-xs-2">
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </div>
+            <div class="col-xs-1">
+                @Html.DisplayFor(modelItem => item.SelectedNewsCategory)
+            </div>
+            <div class="col-xs-2">
+                <a href=""><i class="fa fa-edit fa-lg"></i></a> |
+                <a href="@Url.Action("Details", "ManageNews", new { id = item.Id })"><i class="fa fa-search fa-lg"></i></a> |
+                <a href=""><i class="fa fa-trash-o fa-lg"></i></a>
+                @*@Html.ActionLink("Değiştir", "Edit", new { id = item.Id })
+                    @Html.ActionLink("Görüntüle", "Details", new { id = item.Id })
+                    @Html.ActionLink("Sil", "Delete", new { id = item.Id })*@
+            </div>
         </div>
     </div>
+
 }
 
 

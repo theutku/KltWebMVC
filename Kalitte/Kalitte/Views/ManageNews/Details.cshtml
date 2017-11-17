@@ -1,0 +1,46 @@
+﻿@model Kalitte.Models.News
+
+@{ 
+    ViewBag.Title = "Haber Önizleme";
+}
+
+@Html.Partial("_PageHeader")
+
+@section customStyles {
+    @Styles.Render("~/Content/gallerycss")
+}
+
+<a href="@Url.Action("Index", "ManageNews")" ><i class="fa fa-arrow-circle-left fa-4x margin-left margin-top"></i></a>
+<div class="row margin-top">
+
+    <div id="isotope-gallery-container">
+            <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3 gallery-item-wrapper @Model.NewsTypes ">
+                <div class="gallery-item">
+                    <div class="gallery-thumb">
+                        <img src="~/Content/img/news/tcdd.png" class="img-responsive" alt="3rd gallery Thumb">
+                        <div class="image-overlay"></div>
+                        <a href="img/news/tcdd.png" class="gallery-zoom">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a href="#" class="gallery-link">
+                            <i class="fa fa-link"></i>
+                        </a>
+                    </div>
+                    <div class="gallery-details">
+                        <div class="editContent">
+                            <h4>@Model.Header</h4>
+                        </div>
+                        <div class="editContent">
+                            <p>
+                                @Model.Body
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/ bundles / galleryjs")
+}

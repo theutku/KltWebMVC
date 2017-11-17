@@ -2,19 +2,24 @@
 
 @if (Request.IsAuthenticated)
 {
-     
+
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    @User.Identity.GetUserName()
-                </li>
-                <li>
-                    @Html.ActionLink("Haber Yönetimi", "Index", "ManageNews")
-                </li>
-                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-            </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <i class="fa fa-user"></i> 
+                @User.Identity.GetUserName()
+            </li>
+        </ul>
+        <br />
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Haber Yönetimi", "Index", "ManageNews")
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Oturumu Kapat</a></li>
+        </ul>
 
     }
 }
