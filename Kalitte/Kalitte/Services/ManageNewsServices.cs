@@ -21,7 +21,7 @@ namespace Kalitte.Services
 
         public static void FillNewsModelDetails(News model)
         {
-            model.CreatedBy = HttpContext.Current.User.Identity.GetUserId();
+            model.ApplicationUserId = HttpContext.Current.User.Identity.GetUserId();
             model.CreationDate = DateTime.Now;
         }
 

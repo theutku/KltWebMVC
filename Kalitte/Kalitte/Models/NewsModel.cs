@@ -22,9 +22,6 @@ namespace Kalitte.Models
         [Display(Name = "Haber İçeriği")]
         public string Body { get; set; }
 
-        [Display(Name = "Oluşturan ID")]
-        public string CreatedBy { get; set; }
-
         [DataType(DataType.DateTime)]
         [Display(Name = "Oluşturulma Tarihi")]
         public DateTime CreationDate { get; set; }
@@ -35,6 +32,12 @@ namespace Kalitte.Models
         [Required]
         [Display(Name = "Haber Tipi")]
         public string SelectedNewsCategory { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
+
+        [Required]
+        [Display(Name = "Oluşturan ID")]
+        public string ApplicationUserId { get; set; }
 
     }
 }

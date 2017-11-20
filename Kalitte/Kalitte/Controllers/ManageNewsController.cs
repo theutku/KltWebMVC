@@ -46,8 +46,8 @@ namespace Kalitte.Controllers
         [HttpPost]
         public ActionResult Create(News model)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 try
                 {
                     // TODO: Add insert logic here
@@ -61,10 +61,10 @@ namespace Kalitte.Controllers
                     ManageNewsServices.FillNewsTypes(model);
                     return View(model);
                 }
-            }
+            //}
 
-            ManageNewsServices.FillNewsTypes(model);
-            return View(model);
+            //ManageNewsServices.FillNewsTypes(model);
+            //return View(model);
 
         }
 
