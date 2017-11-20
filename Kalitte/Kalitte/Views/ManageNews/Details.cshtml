@@ -2,6 +2,7 @@
 
 @{ 
     ViewBag.Title = "Haber Önizleme";
+    string imagePath = Url.Content("~/Content/Uploads/" + Model.ImageData);
 }
 
 @Html.Partial("_PageHeader")
@@ -17,9 +18,9 @@
             <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3 gallery-item-wrapper @Model.NewsTypes ">
                 <div class="gallery-item">
                     <div class="gallery-thumb">
-                        <img src="~/Content/img/news/tcdd.png" class="img-responsive" alt="3rd gallery Thumb">
+                        <img src="@imagePath" class="img-responsive" alt="Details Image">
                         <div class="image-overlay"></div>
-                        <a href="img/news/tcdd.png" class="gallery-zoom">
+                        <a href=""@imagePath" class="gallery-zoom">
                             <i class="fa fa-eye"></i>
                         </a>
                         <a href="#" class="gallery-link">

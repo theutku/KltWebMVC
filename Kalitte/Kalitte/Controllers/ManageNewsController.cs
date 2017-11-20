@@ -44,23 +44,25 @@ namespace Kalitte.Controllers
 
         // POST: ManageNews/Create
         [HttpPost]
-        public ActionResult Create(News model)
+        public ActionResult Create(News model, HttpPostedFileBase newsImage)
         {
             //if (ModelState.IsValid)
             //{
-                try
-                {
-                    // TODO: Add insert logic here
-                    ManageNewsServices.FillNewsModelDetails(model);
-                    this.db.News.Add(model);
-                    this.db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                catch
-                {
-                    ManageNewsServices.FillNewsTypes(model);
-                    return View(model);
-                }
+            try
+            {
+                // TODO: Add insert logic here
+                string imageName = ManageNewsServices.ConvertToBytes(newsImage);
+                model.ImageData = imageName;
+                ManageNewsServices.FillNewsModelDetails(model);
+                this.db.News.Add(model);
+                this.db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                ManageNewsServices.FillNewsTypes(model);
+                return View(model);
+            }
             //}
 
             //ManageNewsServices.FillNewsTypes(model);

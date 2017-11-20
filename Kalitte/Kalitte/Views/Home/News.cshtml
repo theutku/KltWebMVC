@@ -32,9 +32,9 @@
                     <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper @item.NewsTypes">
                         <div class="gallery-item">
                             <div class="gallery-thumb">
-                                <img src="~/Content/img/news/tcdd.png" class="img-responsive" alt="3rd gallery Thumb">
+                                <img src="@Url.Content("~/Content/Uploads" + item.ImageData)" class="img-responsive" alt="Gallery Thumb">
                                 <div class="image-overlay"></div>
-                                <a href="img/news/tcdd.png" class="gallery-zoom">
+                                <a href="@Url.Content("~/Content/Uploads" + item.ImageData)" class="gallery-zoom">
                                     <i class="fa fa-eye"></i>
                                 </a>
                                 <a href="#" class="gallery-link">

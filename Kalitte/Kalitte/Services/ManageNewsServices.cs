@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using System.Globalization;
+using System.IO;
 
 namespace Kalitte.Services
 {
@@ -29,6 +30,33 @@ namespace Kalitte.Services
         {
             List<News> allNews = this.db.News.ToList();
             return allNews;
+        }
+
+        public static string ConvertToBytes(HttpPostedFileBase image)
+        {
+            //byte[] imageBytes = null;
+            //BinaryReader reader = new BinaryReader(image.InputStream);
+
+
+            List<byte> bytes = new List<byte>();
+            byte[] buffer = new byte[2000];
+            int index = 0;
+            int readedCount = 0;
+
+            string imagePath = @"C:\Users\tansu\projects\utku\KltWebMVC\Kalitte\Kalitte\Content\Uploads\" + image.FileName;
+
+            FileStream stream = File.Create(imagePath);
+
+            while ((readedCount = image.InputStream.Read(buffer, 0, buffer.Length)) > 0)
+            {
+                index += readedCount;
+                stream.Write(buffer, 0, readedCount);
+                stream.Flush();
+                buffer = new byte[2000];
+            }
+
+            stream.Close();
+            return image.FileName;
         }
     }
 }

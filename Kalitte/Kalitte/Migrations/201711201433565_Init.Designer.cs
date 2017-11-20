@@ -13,7 +13,7 @@ namespace Kalitte.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201711201104300_Init"; }
+            get { return "201711201433565_Init"; }
         }
         
         string IMigrationMetadata.Source

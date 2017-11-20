@@ -9,7 +9,7 @@ namespace Kalitte.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Kalitte.Models.ApplicationDbContext context)

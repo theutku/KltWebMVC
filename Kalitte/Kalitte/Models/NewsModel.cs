@@ -33,6 +33,10 @@ namespace Kalitte.Models
         [Display(Name = "Haber Tipi")]
         public string SelectedNewsCategory { get; set; }
 
+        [Required]
+        [Display(Name = "İçerik Fotoğrafı")]
+        public string ImageData { get; set; }
+
         public virtual ApplicationUser User { get; set; }
 
         [Required]
