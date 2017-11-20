@@ -17,6 +17,7 @@ namespace Kalitte.Models
         public string Header { get; set; }
 
         [Required]
+        [AllowHtml]
         [StringLength(300, MinimumLength = 10)]
         [Display(Name = "Haber İçeriği")]
         public string Body { get; set; }

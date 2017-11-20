@@ -19,7 +19,7 @@ namespace Kalitte.Services
             model.NewsTypes = Enum.GetNames(typeof(NewsTypes.NewsCategory)).Select(category => new SelectListItem() { Text = category, Value = category });
         }
 
-        public static void FillNewsModelDetails (News model)
+        public static void FillNewsModelDetails(News model)
         {
             model.CreatedBy = HttpContext.Current.User.Identity.GetUserId();
             model.CreationDate = DateTime.Now;
