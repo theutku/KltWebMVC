@@ -1,8 +1,8 @@
-﻿@model Kalitte.Models.News
+﻿@model Kalitte.Models.HeaderedPageModel<Kalitte.Models.NewsListingViewModel>
 
 @{ 
     ViewBag.Title = "Haber Önizleme";
-    string imagePath = Url.Content("~/Content/Uploads/" + Model.ImageData);
+    string imagePath = Url.Content("~/Content/Uploads/" + Model.PageModel.ImagePath);
 }
 
 @Html.Partial("_PageHeader")
@@ -15,7 +15,7 @@
 <div class="row margin-top">
 
     <div id="isotope-gallery-container">
-            <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3 gallery-item-wrapper @Model.NewsTypes ">
+            <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3 gallery-item-wrapper @Model.PageModel.SelectedNewsCategory ">
                 <div class="gallery-item">
                     <div class="gallery-thumb">
                         <img src="@imagePath" class="img-responsive" alt="Details Image">
@@ -29,12 +29,12 @@
                     </div>
                     <div class="gallery-details">
                         <div class="editContent">
-                            <h4>@Model.Header</h4>
+                            <h4>@Model.PageModel.Header</h4>
                         </div>
                         <div class="editContent">
                             <p>
                                 @*@Model.Body*@
-                                @Html.Raw(Model.Body)
+                                @Html.Raw(Model.PageModel.Body)
                         </p>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ namespace Kalitte.Services
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public static void FillNewsTypes(News model)
+        public static void FillNewsTypes(CreateNewsViewModel model)
         {
             model.NewsTypes = Enum.GetNames(typeof(NewsTypes.NewsCategory)).Select(category => new SelectListItem() { Text = category, Value = category });
         }

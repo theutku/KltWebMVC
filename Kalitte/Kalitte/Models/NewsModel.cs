@@ -13,6 +13,32 @@ namespace Kalitte.Models
 
         [Required]
         [StringLength(50, MinimumLength = 6)]
+        public string Header { get; set; }
+
+        [Required]
+        [StringLength(300, MinimumLength = 10)]
+        public string Body { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime CreationDate { get; set; }
+
+        [Required]
+        public string SelectedNewsCategory { get; set; }
+
+        [Required]
+        public string ImageData { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
+
+        [Required]
+        public string ApplicationUserId { get; set; }
+
+    }
+
+    public class CreateNewsViewModel
+    {
+        [Required]
+        [StringLength(50, MinimumLength = 6)]
         [Display(Name = "Haber Başlığı")]
         public string Header { get; set; }
 
@@ -22,26 +48,102 @@ namespace Kalitte.Models
         [Display(Name = "Haber İçeriği")]
         public string Body { get; set; }
 
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Oluşturulma Tarihi")]
-        public DateTime CreationDate { get; set; }
-
-        [Display(Name = "Haber Tipi")]
-        public IEnumerable<SelectListItem> NewsTypes { get; set; }
-
         [Required]
         [Display(Name = "Haber Tipi")]
         public string SelectedNewsCategory { get; set; }
+        public IEnumerable<SelectListItem> NewsTypes { get; internal set; }
 
-        [Required]
+    }
+
+
+    public class NewsListingViewModel
+    {
+        public int Id { get; set; }
+
+        [Display(Name = "Haber Tipi")]
+        public string SelectedNewsCategory { get; set; }
+
+        [Display(Name = "Haber İçeriği")]
+        public string Body { get; set; }
+
+        [Display(Name = "Haber Başlığı")]
+        public string Header { get; set; }
+
+        [Display(Name = "Oluşturan")]
+        public string UserName { get; set; }
+
         [Display(Name = "İçerik Fotoğrafı")]
-        public string ImageData { get; set; }
+        public string ImagePath { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
+        [Display(Name = "Oluşturulma Tarihi")]
+        public DateTime CreateDate { get; set; }
+    }
 
-        [Required]
-        [Display(Name = "Oluşturan ID")]
-        public string ApplicationUserId { get; set; }
+    public interface IHeaderedPageModel
+    {
+        string HeaderPageText { get; }
+        bool Rendered { get; }
+        string HeaderFontSize { get; set; }
+    }
 
+    public class ImportantHeaderPageModel<TModel> : HeaderedPageModel<TModel>
+    {
+        public ImportantHeaderPageModel(string headerText, TModel pageModel) : base(headerText,pageModel)
+        {
+            //this.HeaderFontSize = "20px";
+        }
+
+    }
+
+    public class HeaderedPageModel<TModel> : IHeaderedPageModel
+    {
+        public HeaderedPageModel()
+        {
+
+        }
+        public HeaderedPageModel(string headerText,TModel pageModel)
+        {
+            this.HeaderPageText = headerText;
+            this.PageModel = pageModel;
+            //this.HeaderFontSize = "12px";
+        }
+
+        public string HeaderFontSize { get; set; }
+
+        public string HeaderPageText
+        {
+            get; set;
+        }
+
+        public bool Rendered { get; set; } = true;
+        public TModel PageModel { get; set; }
+    }
+
+
+    public class SimpleHeader : IHeaderedPageModel
+    {
+        public SimpleHeader(string text)
+        {
+            this.HeaderPageText = text;
+            this.HeaderFontSize = "16px";
+        }
+
+        public string HeaderFontSize
+        {
+            get; set;
+        }
+
+        public string HeaderPageText
+        {
+            get; set;
+        }
+
+        public bool Rendered
+        {
+            get
+            {
+                return true;
+            }
+        }
     }
 }

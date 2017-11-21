@@ -18,49 +18,63 @@ namespace Kalitte.Controllers
         // GET: ManageNews
         public ActionResult Index()
         {
-            List<News> allNews = this.db.News.ToList();
-            ViewBag.PageHeader = "TÜM HABERLER";
-            return View(allNews);
-        }
+            var allNews = this.db.News.ToList().Select(d => new NewsListingViewModel()
+            {
+                Body = d.Body,
+                CreateDate = d.CreationDate,
+                Header = d.Header,
+                ImagePath = d.ImageData,
+                SelectedNewsCategory = d.SelectedNewsCategory,
+                UserName = d.User.UserName,
+                Id = d.Id
+            });
+             
+
+            return View(new HeaderedPageModel<IEnumerable<NewsListingViewModel>>("TÜM HABERLER",allNews));
+            }
 
         // GET: ManageNews/Details/5
         public ActionResult Details(int id)
-        {
-            ViewBag.PageHeader = "HABER DETAYI";
+        { 
             News newsItem = this.db.News.Find(id);
-            return View(newsItem);
+            return View(new HeaderedPageModel<News>("HABER DETAYI", newsItem));
         }
 
         // GET: ManageNews/Create
         public ActionResult Create()
         {
-            var model = new News();
+            var model = new CreateNewsViewModel();
             ManageNewsServices.FillNewsTypes(model);
-
-            ViewBag.PageHeader = "Yeni Haber Oluştur";
-
-            return View(model);
+             
+            return View(new ImportantHeaderPageModel<CreateNewsViewModel>("Yeni Haber Oluştur", model) { });
         }
 
         // POST: ManageNews/Create
         [HttpPost]
-        public ActionResult Create(News model, HttpPostedFileBase newsImage)
+        public ActionResult Create(HeaderedPageModel<CreateNewsViewModel> model, HttpPostedFileBase newsImage)
         {
             //if (ModelState.IsValid)
             //{
             try
             {
+                News insertData = new News();
+
+                insertData.Body = model.PageModel.Body;
+                insertData.Header = model.PageModel.Header;
+                insertData.SelectedNewsCategory = model.PageModel.SelectedNewsCategory;
+
+
                 // TODO: Add insert logic here
                 string imageName = ManageNewsServices.ConvertToBytes(newsImage);
-                model.ImageData = imageName;
-                ManageNewsServices.FillNewsModelDetails(model);
-                this.db.News.Add(model);
+                insertData.ImageData = imageName;
+                ManageNewsServices.FillNewsModelDetails(insertData);
+                this.db.News.Add(insertData);
                 this.db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
-                ManageNewsServices.FillNewsTypes(model);
+                ManageNewsServices.FillNewsTypes(model.PageModel);
                 return View(model);
             }
             //}
@@ -95,22 +109,31 @@ namespace Kalitte.Controllers
         // GET: ManageNews/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            News toDelete = new News { Id = id };
+            this.db.News.Attach(toDelete);
+            this.db.News.Remove(toDelete);
+            this.db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
         // POST: ManageNews/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public JsonResult Delete(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
+                News toDelete = new News { Id = id };
+                this.db.News.Attach(toDelete);
+                this.db.News.Remove(toDelete);
+                this.db.SaveChanges();
+                return Json("Seçili haber silinmiştir.", JsonRequestBehavior.AllowGet);
             }
             catch
             {
-                return View();
+                return Json("Silme Hatası!", JsonRequestBehavior.AllowGet);
             }
         }
     }

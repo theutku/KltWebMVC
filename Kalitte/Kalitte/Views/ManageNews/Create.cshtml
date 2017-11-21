@@ -1,45 +1,45 @@
-﻿@model Kalitte.Models.News
+﻿@model Kalitte.Models.ImportantHeaderPageModel<Kalitte.Models.CreateNewsViewModel>
 
 @{
     ViewBag.Title = "Haber Oluştur";
 }
 
-@Html.Partial("_PageHeader")
- 
+@Html.Partial("_PageHeader", Model)
 
-@using (Html.BeginForm("Create","ManageNews",FormMethod.Post,new { enctype="multipart/form-data" }))
+
+@using (Html.BeginForm("Create", "ManageNews", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Header, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PageModel.Header, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Header, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Header, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.PageModel.Header, new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.PageModel.Header, "", htmlAttributes: new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PageModel.Body, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(model => model.PageModel.Body, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PageModel.Body, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NewsTypes, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PageModel.NewsTypes, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("SelectedNewsCategory", Model.NewsTypes, "Haber Tipi", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CreationDate, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(d=> d.PageModel.SelectedNewsCategory, Model.PageModel.NewsTypes, "Haber Tipi", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PageModel.SelectedNewsCategory, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.ImageData, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Image Data</label>
             <div class="col-md-10">
-                <input type="file" name="newsImage" id="ImageData" />
+                <input type="file" name="newsImage" id="ImageData" class="form-control" />
             </div>
         </div>
         <div class="form-group">
