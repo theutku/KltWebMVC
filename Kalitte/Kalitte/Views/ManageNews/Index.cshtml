@@ -1,4 +1,4 @@
-﻿@model Kalitte.Models.HeaderedPageModel<IEnumerable<Kalitte.Models.NewsListingViewModel>>
+﻿@model Kalitte.Services.HeaderedPageModel<IEnumerable<Kalitte.Models.NewsListingViewModel>>
 
 @{
     ViewBag.Title = "Tüm Haberler";
@@ -7,7 +7,7 @@
 
 @Html.Partial("_PageHeader",Model)
 
-<div id="returnMessage"></div>
+<div id="returnMessage" class="row-cont"></div>
 
 <a href="@Url.Action("Create", "ManageNews")" class="margin-left "><i class="fa fa-3x fa-plus-circle custom-padding-top"></i></a>
 <div class="row-cont">

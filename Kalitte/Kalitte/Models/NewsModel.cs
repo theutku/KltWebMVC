@@ -79,71 +79,71 @@ namespace Kalitte.Models
         public DateTime CreateDate { get; set; }
     }
 
-    public interface IHeaderedPageModel
-    {
-        string HeaderPageText { get; }
-        bool Rendered { get; }
-        string HeaderFontSize { get; set; }
-    }
+    //public interface IHeaderedPageModel
+    //{
+    //    string HeaderPageText { get; }
+    //    bool Rendered { get; }
+    //    string HeaderFontSize { get; set; }
+    //}
 
-    public class ImportantHeaderPageModel<TModel> : HeaderedPageModel<TModel>
-    {
-        public ImportantHeaderPageModel(string headerText, TModel pageModel) : base(headerText,pageModel)
-        {
-            //this.HeaderFontSize = "20px";
-        }
+    //public class ImportantHeaderPageModel<TModel> : HeaderedPageModel<TModel>
+    //{
+    //    public ImportantHeaderPageModel(string headerText, TModel pageModel) : base(headerText,pageModel)
+    //    {
+    //        //this.HeaderFontSize = "20px";
+    //    }
 
-    }
+    //}
 
-    public class HeaderedPageModel<TModel> : IHeaderedPageModel
-    {
-        public HeaderedPageModel()
-        {
+    //public class HeaderedPageModel<TModel> : IHeaderedPageModel
+    //{
+    //    public HeaderedPageModel()
+    //    {
 
-        }
-        public HeaderedPageModel(string headerText,TModel pageModel)
-        {
-            this.HeaderPageText = headerText;
-            this.PageModel = pageModel;
-            //this.HeaderFontSize = "12px";
-        }
+    //    }
+    //    public HeaderedPageModel(string headerText,TModel pageModel)
+    //    {
+    //        this.HeaderPageText = headerText;
+    //        this.PageModel = pageModel;
+    //        //this.HeaderFontSize = "12px";
+    //    }
 
-        public string HeaderFontSize { get; set; }
+    //    public string HeaderFontSize { get; set; }
 
-        public string HeaderPageText
-        {
-            get; set;
-        }
+    //    public string HeaderPageText
+    //    {
+    //        get; set;
+    //    }
 
-        public bool Rendered { get; set; } = true;
-        public TModel PageModel { get; set; }
-    }
+    //    public bool Rendered { get; set; } = true;
+    //    public TModel PageModel { get; set; }
+    //}
 
 
-    public class SimpleHeader : IHeaderedPageModel
-    {
-        public SimpleHeader(string text)
-        {
-            this.HeaderPageText = text;
-            this.HeaderFontSize = "16px";
-        }
+    //public class SimpleHeader : IHeaderedPageModel
+    //{
+    //    public SimpleHeader(string text)
+    //    {
+    //        this.HeaderPageText = text;
+    //        this.HeaderFontSize = "16px";
+    //    }
 
-        public string HeaderFontSize
-        {
-            get; set;
-        }
+    //    public string HeaderFontSize
+    //    {
+    //        get; set;
+    //    }
 
-        public string HeaderPageText
-        {
-            get; set;
-        }
+    //    public string HeaderPageText
+    //    {
+    //        get; set;
+    //    }
 
-        public bool Rendered
-        {
-            get
-            {
-                return true;
-            }
-        }
-    }
+    //    public bool Rendered
+    //    {
+    //        get
+    //        {
+    //            return true;
+    //        }
+    //    }
+    //}
 }

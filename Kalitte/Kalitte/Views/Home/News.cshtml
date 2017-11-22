@@ -29,7 +29,7 @@
 
                 @foreach (var item in Model)
             {
-                    <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper @item.NewsTypes">
+                    <div class="col-md-4 col-sm-6 col-xs-12 gallery-item-wrapper @item.SelectedNewsCategory">
                         <div class="gallery-item">
                             <div class="gallery-thumb">
                                 <img src="@Url.Content("~/Content/Uploads" + item.ImageData)" class="img-responsive" alt="Gallery Thumb">

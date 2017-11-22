@@ -1,11 +1,11 @@
-﻿@model Kalitte.Models.IHeaderedPageModel
-@if (Model.Rendered)
+﻿@model Kalitte.Services.IHeaderedPageModel
+@if (Model.IsRendered)
 {
     <section id="inner-headline">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="pageTitle" style="font-size:@Model.HeaderFontSize">@Model.HeaderPageText</h2>
+                    <h2 class="pageTitle" style="font-size:@Model.HeaderFontSize">@Model.HeaderText</h2>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Kalitte.Controllers
 {
 
@@ -18,7 +19,7 @@ namespace Kalitte.Controllers
         // GET: ManageNews
         public ActionResult Index()
         {
-            var allNews = this.db.News.ToList().Select(d => new NewsListingViewModel()
+            var allNews = this.db.News.Select(d => new NewsListingViewModel()
             {
                 Body = d.Body,
                 CreateDate = d.CreationDate,
@@ -27,15 +28,15 @@ namespace Kalitte.Controllers
                 SelectedNewsCategory = d.SelectedNewsCategory,
                 UserName = d.User.UserName,
                 Id = d.Id
-            });
-             
+            }).ToList();
 
-            return View(new HeaderedPageModel<IEnumerable<NewsListingViewModel>>("TÜM HABERLER",allNews));
-            }
+
+            return View(new HeaderedPageModel<IEnumerable<NewsListingViewModel>>("TÜM HABERLER", allNews));
+        }
 
         // GET: ManageNews/Details/5
         public ActionResult Details(int id)
-        { 
+        {
             News newsItem = this.db.News.Find(id);
             return View(new HeaderedPageModel<News>("HABER DETAYI", newsItem));
         }
@@ -45,8 +46,8 @@ namespace Kalitte.Controllers
         {
             var model = new CreateNewsViewModel();
             ManageNewsServices.FillNewsTypes(model);
-             
-            return View(new ImportantHeaderPageModel<CreateNewsViewModel>("Yeni Haber Oluştur", model) { });
+
+            return View(new HeaderedPageModel<CreateNewsViewModel>("Yeni Haber Oluştur", model) { });
         }
 
         // POST: ManageNews/Create

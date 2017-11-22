@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Kalitte.Models;
+using Kalitte.Services;
 
 namespace Kalitte.Controllers
 {
@@ -58,7 +59,8 @@ namespace Kalitte.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            var model = new LoginViewModel();
+            return View(new HeaderedPageModel<LoginViewModel>("YETKİLİ GİRİŞİ", model));
         }
 
         //
@@ -139,7 +141,8 @@ namespace Kalitte.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            var model = new RegisterViewModel();
+            return View(new HeaderedPageModel<RegisterViewModel>("KULLANICI KAYDI", model));
         }
 
         //
